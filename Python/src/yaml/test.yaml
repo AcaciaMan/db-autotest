@@ -1,0 +1,32 @@
+table: {'m_object_detail_id': 179, 'm_object_id': 4, 'm_version_id': 23, 'idx_table_id': None, 'm_unique': 0, 'status': 'VALID', 'enabled': 1, 'droped': 0}
+table_nodes: [
+  p_object: {'m_object_id': 4, 'schema': 'db', 'name': 'm_object_detail', 'type': 'TABLE', 'create_date': 1703483170},
+  c_column: {'column_name': 'm_object_detail_id', 'sort': 0, 'type': 'INTEGER'},
+  c_column: {'column_name': 'm_object_id', 'sort': 1, 'type': 'INTEGER'},
+  c_column: {'column_name': 'm_version_id', 'sort': 2, 'type': 'INTEGER'},
+  c_column: {'column_name': 'idx_table_id', 'sort': 3, 'type': 'INTEGER'},
+  c_column: {'column_name': 'm_unique', 'sort': 4, 'type': 'INTEGER'},
+  c_column: {'column_name': 'status', 'sort': 5, 'type': 'TEXT'},
+  c_column: {'column_name': 'enabled', 'sort': 6, 'type': 'INTEGER'},
+  c_column: {'column_name': 'droped', 'sort': 7, 'type': 'INTEGER'},
+  c_index: {'m_object_detail_id': 185, 'm_object_id': 10, 'm_version_id': 23, 'idx_table_id': 4, 'm_unique': 1, 'status': 'VALID', 'enabled': 1, 'droped': 0},
+  c_index_nodes: [
+    c_idx_column: {'column_name': 'm_object_id', 'sort': 0},
+    c_idx_column: {'column_name': 'm_version_id', 'sort': 1}
+  ],
+  c_index: {'m_object_detail_id': 186, 'm_object_id': 11, 'm_version_id': 23, 'idx_table_id': 4, 'm_unique': 0, 'status': 'VALID', 'enabled': 1, 'droped': 0},
+  c_index_nodes: [
+    c_idx_column: {'column_name': 'idx_table_id', 'sort': 0},
+    c_idx_column: {'column_name': 'm_version_id', 'sort': 1}
+  ],
+  c_index: {'m_object_detail_id': 187, 'm_object_id': 12, 'm_version_id': 23, 'idx_table_id': 4, 'm_unique': 0, 'status': 'VALID', 'enabled': 1, 'droped': 0},
+  c_index_nodes: [
+    c_idx_column: {'column_name': 'm_version_id', 'sort': 0}
+  ],
+  c_index: {'m_object_detail_id': 188, 'm_object_id': 13, 'm_version_id': 23, 'idx_table_id': 4, 'm_unique': 0, 'status': 'VALID', 'enabled': 1, 'droped': 0},
+  c_index_nodes: [
+    c_idx_column: {'column_name': 'm_unique', 'sort': 0},
+    c_idx_column: {'column_name': 'enabled', 'sort': 1},
+    c_idx_column: {'column_name': 'status', 'sort': 2}
+  ]
+]

@@ -1,0 +1,14 @@
+{ "table": {"m_object_detail_id": 179, "m_object_id": 4},
+  "parents": {
+       "object": {"m_object_id": 4, "schema": "db", "name": "m_object_detail"}
+  },
+  "childs": {
+       "column": [
+           {"name":"id"},
+           {"name":"object_id"}
+       ],
+       "index": [
+           {"name":"idx_id"}
+       ]
+  }
+}
