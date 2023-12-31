@@ -10,7 +10,7 @@ class TestSelects(unittest.TestCase):
         print("Started")
         #lt.LoadTables().load()
         lt = M_Entity(m_object_detail(), m_object_detail_r())
-        get_entity_rows(lt, [m_object_detail().m_object_detail_id, m_object_detail().m_object_id], [179, 4] )
+        get_entity_rows(lt, [m_object_detail().m_object_detail_id, m_object_detail().m_object_id], [4, 4] )
         print(lt.row_dict)
         #LoadVersion().load()
 

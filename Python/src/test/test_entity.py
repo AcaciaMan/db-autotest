@@ -9,19 +9,19 @@ class TestLoads(unittest.TestCase):
     def testLoadClass(self):
         print('Started class')
         cl = LiteTableC()
-        cl.load([179])
+        cl.load([4])
         print(M_Yaml().get_yaml(cl.m_structure))
 
     def testLoadInit(self):
         print('Started init')
         cl = C_M_Table()
-        cl.c_main.load([179])
+        cl.c_main.load([4])
         print(M_Yaml().get_yaml(cl.c_main.m_structure))
 
     def testLoadNames(self):
         print('Started names')
         cl = C_M_TableNames()
-        cl.c_main.load([179])
+        cl.c_main.load([4])
         print(M_Yaml().get_yaml(cl.c_main.m_structure))
 
 
