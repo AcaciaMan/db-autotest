@@ -1,12 +1,12 @@
 env:
   - dev:
       db_type: sqlite
-      db_path: 'C:/Work/GitHub/AutoTest/Docs/metadata_sqlite.db'
+      db_path: 'C:/Work/GitHub/db-autotest/Docs/m_sqlite.db'
 
-metadata_db: 'C:/Work/GitHub/AutoTest/Docs/metadata_sqlite.db'
+metadata_db: 'C:/Work/GitHub/db-autotest/Docs/m_sqlite.db'
 
-tables_module: 'C:/Work/GitHub/AutoTest/Python/src/lib/m_table/m_table.py'
-rows_module: 'C:/Work/GitHub/AutoTest/Python/src/lib/m_table/m_row.py'
+tables_module: 'C:/Work/GitHub/db-autotest/Python/src/lib/m_table/m_table.py'
+rows_module: 'C:/Work/GitHub/db-autotest/Python/src/lib/m_table/m_row.py'
 
 main_env:
   name: dev
