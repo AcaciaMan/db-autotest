@@ -1,22 +1,17 @@
-import yaml
+import configparser
 from . import config as cn
 import os
 
-prime_service = None
+file_path = os.environ.get('DB_AUTOTEST_CONFIG_FILE', 'db_autotest.ini')
+config_default = configparser.ConfigParser()
 
 try:
-   with open('config.yaml', 'r') as file:
-      print(os.path.abspath(  'config.yaml'))
-      prime_service = yaml.safe_load(file)
-      
-      print(dir(cn))
-      cn.Config.set_variables(prime_service)
+    config_default.read(file_path)
+    print(config_default.get('DEFAULT', 'main_env'))    
+    cn.Config.set_config(config_default)
 
 except Exception as e:
    print('Error', e)
-
-
-
 
 
 #cn.connect_main()

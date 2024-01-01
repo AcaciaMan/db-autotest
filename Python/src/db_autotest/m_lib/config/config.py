@@ -12,10 +12,11 @@ def meta(new = None):
 # TODO add env creation in meta.m_env table
 
 class Config:
-    config: configparser.ConfigParser = None
+    config  = configparser.ConfigParser()
     main_con = None
-    main_env = None
+    main_env: str = None
     meta_con = None
+    fetch_child_rows:int = 1000
 
 
     @classmethod
@@ -25,47 +26,35 @@ class Config:
         """
         cls.config = config
         cls.main_env = config.get('DEFAULT', 'main_env')
-
-
-
-    @classmethod
-    def set_variables(cls, prime_service_):
-        """
-        docstring
-        """
-        cls.prime_service = prime_service_
-        cls.main_env = cls.prime_service["main_env"]["name"]
-        cls.fetch_child_rows = cls.prime_service["fetch_child_rows"]
-        cls.retrieve_env(cls.prime_service["env"])
-        cls.db_type = cls.env_dict[cls.main_env]["db_type"]
-
-    @classmethod
-    def retrieve_env(cls, thislist):
-        for x in thislist:
-            cls.env_dict.update(x)
+        cls.fetch_child_rows = config.getint('DEFAULT', 'fetch_child_rows')
 
     @classmethod
     def connect_main_sqlite(cls):
-        return sqlite3.connect(cls.env_dict[cls.main_env]["db_path"])
+        db_main = cls.config[cls.main_env.upper()]
+        return sqlite3.connect(db_main.get("db_path"))
         #print(cls.conn.total_changes)        
 
     @classmethod
     def con(cls, new = None):
-        if cls.conn is None:
-            if cls.db_type == 'sqlite':
-                cls.conn = cls.connect_main_sqlite()
+        db_main = cls.config[cls.main_env.upper()]
+        if cls.main_con is None:
+            if db_main.get('db_type') == 'sqlite':
+                cls.main_con = cls.connect_main_sqlite()
             else:
-                ConnectOracle.connect_main()
+                cls.main_con = ConnectOracle.connect_main()
 
         if new is None:
-            return cls.conn
+            return cls.main_con
         else:
-            return cls.connect_main_sqlite()
+            if db_main.get('db_type') == 'sqlite':
+                return cls.connect_main_sqlite()
+            else:
+                return ConnectOracle.connect_main()
 
     @classmethod
     def close_main(cls):
-        if cls.conn is not None:
-            cls.conn.close
+        if cls.main_con is not None:
+            cls.main_con.close()
 
 
     @classmethod
@@ -85,5 +74,6 @@ class Config:
 
     @classmethod
     def connect_meta(cls):
-        return sqlite3.connect(cls.prime_service['metadata_db'])
+        db_meta = cls.config['META_DB']
+        return sqlite3.connect(db_meta.get('db_path'))
         #print(cls.meta_con.total_changes)         
