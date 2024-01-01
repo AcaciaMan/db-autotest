@@ -1,6 +1,6 @@
-import src.m_lib.config.config as cn
+import src.db_autotest.m_lib.config.config as cn
 
-class LoadIndexes(object):
+class LoadColumns(object):
     """
     docstring
     """
@@ -13,12 +13,9 @@ class LoadIndexes(object):
 
         cur.execute(
         '''
-        SELECT 
-            'db', lower(name)
-        FROM 
-            sqlite_schema
-        WHERE 
-            type ='index'
+        WITH all_tables AS (SELECT name FROM sqlite_master WHERE type = 'table') 
+        SELECT distinct 'db', lower(pti.name)
+        FROM all_tables at INNER JOIN pragma_table_info(at.name) pti
         '''
         )
 
@@ -39,18 +36,18 @@ class LoadIndexes(object):
                 # Preparing SQL queries to INSERT a record into the database.
                 meta.execute('''INSERT INTO M_OBJECT(
                 SCHEMA, NAME, TYPE) VALUES 
-                (?, ?, 'INDEX')''', x)
+                (?, ?, 'COLUMN')''', x)
 
             except Exception:
-                exi = exi +1
+                exi = exi+1
 
             else:    
 
                 # Commit your changes in the database
                 cn.meta().commit()
-                ins = ins +1
+                ins = ins+1
 
         meta.close()
 
-        print("Indexes Inserted", ins, "Existing", exi)
+        print("Columns ins", ins, "exi", exi)
 

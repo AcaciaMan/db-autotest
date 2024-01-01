@@ -1,5 +1,5 @@
 
-import m_lib.config.config as cn
+import db_autotest.m_lib.config.config as cn
 
 
 print('something main: ' + cn.Config.main_env)

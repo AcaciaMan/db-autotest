@@ -1,9 +1,11 @@
-import src.m_lib.config.config as cn
+import src.db_autotest.m_lib.config.config as cn
 
-class LoadColumns(object):
+class LoadTables(object):
     """
     docstring
     """
+
+
     def load(self):
         """
         docstring
@@ -13,9 +15,12 @@ class LoadColumns(object):
 
         cur.execute(
         '''
-        WITH all_tables AS (SELECT name FROM sqlite_master WHERE type = 'table') 
-        SELECT distinct 'db', lower(pti.name)
-        FROM all_tables at INNER JOIN pragma_table_info(at.name) pti
+        SELECT 
+            'db', lower(name)
+        FROM 
+            sqlite_schema
+        WHERE 
+            type ='table'
         '''
         )
 
@@ -26,8 +31,8 @@ class LoadColumns(object):
         #Connecting to sqlite
         meta = cn.meta().cursor()
 
-        ins = 0
-        exi = 0
+        inserted = 0
+        existing = 0
 
         for x in lCur:
             # print("owner", owner, table_name)
@@ -36,18 +41,18 @@ class LoadColumns(object):
                 # Preparing SQL queries to INSERT a record into the database.
                 meta.execute('''INSERT INTO M_OBJECT(
                 SCHEMA, NAME, TYPE) VALUES 
-                (?, ?, 'COLUMN')''', x)
+                (?, ?, 'TABLE')''', x)
 
             except Exception:
-                exi = exi+1
+                existing = existing + 1
 
             else:    
 
                 # Commit your changes in the database
                 cn.meta().commit()
-                ins = ins+1
+                inserted = inserted + 1
 
         meta.close()
 
-        print("Columns ins", ins, "exi", exi)
+        print("Tables Inserted:", inserted, "Existing", existing)
 

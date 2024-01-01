@@ -5,8 +5,8 @@ env:
 
 metadata_db: 'C:/Work/GitHub/db-autotest/Docs/m_sqlite.db'
 
-tables_module: 'C:/Work/GitHub/db-autotest/Python/src/m_lib/m_table/m_table.py'
-rows_module: 'C:/Work/GitHub/db-autotest/Python/src/m_lib/m_table/m_row.py'
+tables_module: 'C:/Work/GitHub/db-autotest/Python/src/db-autotest/m_lib/m_table/m_table.py'
+rows_module: 'C:/Work/GitHub/db-autotest/Python/src/db-autotest/m_lib/m_table/m_row.py'
 
 main_env:
   name: dev

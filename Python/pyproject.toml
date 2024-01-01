@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "db-autotest"
+name = "db_autotest"
 version = "0.0.1"
 authors = [
   { name="AcaciaMan", email="11488694+AcaciaMan@users.noreply.github.com" },

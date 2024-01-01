@@ -1,7 +1,7 @@
-import src.m_lib.config.config as cn
-from src.m_lib.m_object.m_entity import M_Entity
-from src.m_lib.m_object.m_structure import M_Structure
-from src.m_lib.utils.m_entity_selects import get_entity_rows
+import src.db_autotest.m_lib.config.config as cn
+from src.db_autotest.m_lib.m_object.m_entity import M_Entity
+from src.db_autotest.m_lib.m_object.m_structure import M_Structure
+from src.db_autotest.m_lib.utils.m_entity_selects import get_entity_rows
 
 
 class M_Relation(object):

@@ -1,8 +1,8 @@
 import unittest
-from src.m_lib.m_object.m_entity import M_Entity
-from src.m_lib.m_table.m_row import m_object_detail_r
-from src.m_lib.m_table.m_table import m_object_detail
-from src.m_lib.utils.m_entity_selects import get_entity_rows
+from src.db_autotest.m_lib.m_object.m_entity import M_Entity
+from src.db_autotest.m_lib.m_table.m_row import m_object_detail_r
+from src.db_autotest.m_lib.m_table.m_table import m_object_detail
+from src.db_autotest.m_lib.utils.m_entity_selects import get_entity_rows
 
 class TestSelects(unittest.TestCase):
 

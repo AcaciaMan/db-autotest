@@ -1,8 +1,8 @@
 from typing import TYPE_CHECKING
 
-from src.m_lib.m_object.m_str_type_enum import M_StructureType
+from src.db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
 if TYPE_CHECKING:
-    from src.m_lib.m_object.m_structure import M_Structure
+    from src.db_autotest.m_lib.m_object.m_structure import M_Structure
 
 
 class M_Yaml(object):

@@ -1,11 +1,9 @@
-import src.m_lib.config.config as cn
+import src.db_autotest.m_lib.config.config as cn
 
-class LoadTables(object):
+class LoadIndexes(object):
     """
     docstring
     """
-
-
     def load(self):
         """
         docstring
@@ -20,7 +18,7 @@ class LoadTables(object):
         FROM 
             sqlite_schema
         WHERE 
-            type ='table'
+            type ='index'
         '''
         )
 
@@ -31,8 +29,8 @@ class LoadTables(object):
         #Connecting to sqlite
         meta = cn.meta().cursor()
 
-        inserted = 0
-        existing = 0
+        ins = 0
+        exi = 0
 
         for x in lCur:
             # print("owner", owner, table_name)
@@ -41,18 +39,18 @@ class LoadTables(object):
                 # Preparing SQL queries to INSERT a record into the database.
                 meta.execute('''INSERT INTO M_OBJECT(
                 SCHEMA, NAME, TYPE) VALUES 
-                (?, ?, 'TABLE')''', x)
+                (?, ?, 'INDEX')''', x)
 
             except Exception:
-                existing = existing + 1
+                exi = exi +1
 
             else:    
 
                 # Commit your changes in the database
                 cn.meta().commit()
-                inserted = inserted + 1
+                ins = ins +1
 
         meta.close()
 
-        print("Tables Inserted:", inserted, "Existing", existing)
+        print("Indexes Inserted", ins, "Existing", exi)
 

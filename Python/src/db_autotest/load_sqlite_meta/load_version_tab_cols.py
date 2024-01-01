@@ -1,5 +1,5 @@
-import src.m_lib.config.config as cn
-from src.m_lib.utils.selects import GetValues
+import src.db_autotest.m_lib.config.config as cn
+from src.db_autotest.m_lib.utils.selects import GetValues
 
 class VersionTabCols:
 
