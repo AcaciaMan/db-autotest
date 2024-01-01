@@ -67,7 +67,7 @@ class GetValues(object):
             where m.m_object_id = ?
             and m.m_version_id = v.m_version_id
             and v.m_env_id = e.m_env_id
-            and lower(e.name) = lower(?)
+            and e.name = ?
             order by v.load_date desc
             ''', (m_object_id, env_name))
 

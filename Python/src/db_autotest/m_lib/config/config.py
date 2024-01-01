@@ -31,7 +31,7 @@ class Config:
         cls.main_env = config.get('DEFAULT', 'main_env')
         cls.fetch_child_rows = config.getint('DEFAULT', 'fetch_child_rows')
         cls.env_dict = {}
-        for x in ','.split(cls.config.get('DEFAULT','env')):
+        for x in cls.config.get('DEFAULT','envs').split(','):
             cls.env_dict[x] = x.upper()
 
     @classmethod
