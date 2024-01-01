@@ -8,7 +8,7 @@ def get_entity_rows(
     column,
     value,
     env=cn.Config.main_env,
-    fetch_rows=cn.Config.fetch_child_rows,    
+    fetch_rows=cn.Config.config.get('DEFAULT', 'fetch_child_rows'),    
     select: str = None,
     where: str = None,
 ):

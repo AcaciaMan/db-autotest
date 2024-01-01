@@ -1,6 +1,7 @@
 import sqlite3
 
 from src.db_autotest.m_lib.utils.connect_oracle import ConnectOracle
+import configparser
 
 def con(new = None):
     return Config.con(new)
@@ -11,16 +12,21 @@ def meta(new = None):
 # TODO add env creation in meta.m_env table
 
 class Config:
-    prime_service = {}
-    conn = None
-    db_host = None
-    db_user = None
-    db_pass = None
-    db_type = None
+    config: configparser.ConfigParser = None
+    main_con = None
     main_env = None
     meta_con = None
-    env_dict = {}
-    fetch_child_rows:int = 1000
+
+
+    @classmethod
+    def set_config(cls, config: configparser.ConfigParser):
+        """
+        docstring
+        """
+        cls.config = config
+        cls.main_env = config.get('DEFAULT', 'main_env')
+
+
 
     @classmethod
     def set_variables(cls, prime_service_):
