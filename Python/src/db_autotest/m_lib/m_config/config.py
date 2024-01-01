@@ -1,6 +1,6 @@
 import sqlite3
 
-from src.db_autotest.m_lib.utils.connect_oracle import ConnectOracle
+from src.db_autotest.m_lib.m_utils.connect_oracle import ConnectOracle
 import configparser
 
 # TODO add env creation in meta.m_env table

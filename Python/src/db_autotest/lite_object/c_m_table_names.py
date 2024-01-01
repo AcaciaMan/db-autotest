@@ -1,5 +1,5 @@
 from src.db_autotest.m_lib.m_table.m_table import m_column, m_object, m_object_detail
-from src.db_autotest.m_lib.utils.m_entity_utils import add_db_code_alias, apply_to_all_env
+from src.db_autotest.m_lib.m_utils.m_entity_utils import add_db_code_alias, apply_to_all_env
 from src.db_autotest.lite_object.c_m_table import C_M_Table
 import src.db_autotest.m_lib.m_config.config as cn
 

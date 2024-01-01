@@ -1,5 +1,5 @@
 import unittest
-from src.db_autotest.m_lib.utils.m_yaml import M_Yaml
+from src.db_autotest.m_lib.m_utils.m_yaml import M_Yaml
 from src.db_autotest.lite_object.c_m_table import C_M_Table
 from src.db_autotest.lite_object.c_m_table_names import C_M_TableNames
 
