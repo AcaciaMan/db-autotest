@@ -1,4 +1,4 @@
-import src.db_autotest.m_lib.config.config as cn  # noqa: F401
+import src.db_autotest.m_lib.m_config.config as cn  # noqa: F401
 
 from src.db_autotest.load_sqlite_meta.load_columns import LoadColumns
 from src.db_autotest.load_sqlite_meta.load_indexes import LoadIndexes

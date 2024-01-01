@@ -1,4 +1,4 @@
-import src.db_autotest.m_lib.config.config as cn
+from src.db_autotest.m_lib.m_config.config import M_Config
 from src.db_autotest.m_lib.m_object.m_entity import M_Entity
 from src.db_autotest.m_lib.utils.m_entity_utils import fill_entity_dict
 
@@ -7,8 +7,8 @@ def get_entity_rows(
     m_entity: M_Entity,
     column,
     value,
-    env=cn.Config.main_env,
-    fetch_rows=cn.Config.fetch_child_rows,    
+    env=M_Config.main_env,
+    fetch_rows=M_Config.fetch_child_rows,    
     select: str = None,
     where: str = None,
 ):
@@ -24,7 +24,7 @@ def get_entity_rows(
         for x in column:
             where = where + " and " + x + " = ?"
 
-    cur = cn.con().cursor()
+    cur = M_Config.con().cursor()
 
     m_entity.row_cols = m_entity.row.c[env]
 

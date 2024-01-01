@@ -1,4 +1,4 @@
-import src.db_autotest.m_lib.config.config as cn
+from src.db_autotest.m_lib.m_config.config import M_Config
 from src.db_autotest.m_lib.m_object.m_entity import M_Entity
 from src.db_autotest.m_lib.m_object.m_structure import M_Structure
 from src.db_autotest.m_lib.utils.m_entity_selects import get_entity_rows
@@ -11,7 +11,7 @@ class M_Relation(object):
 
     relations = {}
 
-    def __init__(self, parent: M_Entity, child: M_Entity, fetch_rows: int = cn.Config.fetch_child_rows):
+    def __init__(self, parent: M_Entity, child: M_Entity, fetch_rows: int = M_Config.fetch_child_rows):
         """
         docstring
         """

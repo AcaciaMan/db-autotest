@@ -1,4 +1,4 @@
-import db_autotest.m_lib.config.config as cn
+import db_autotest.m_lib.m_config.config as cn
 import sqlite3
 
 cur = cn.con.cursor()

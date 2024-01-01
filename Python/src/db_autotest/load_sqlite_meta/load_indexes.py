@@ -1,4 +1,4 @@
-import src.db_autotest.m_lib.config.config as cn
+import src.db_autotest.m_lib.m_config.config as cn
 
 class LoadIndexes(object):
     """

@@ -17,9 +17,16 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+  "pyyaml>=6",
+]
+
 [project.urls]
 Homepage = "https://github.com/AcaciaMan/db-autotest"
 Issues = "https://github.com/AcaciaMan/db-autotest/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/db_autotest"]
+only-include = ["src/db_autotest"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src" = ""

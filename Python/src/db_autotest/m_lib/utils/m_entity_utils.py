@@ -1,19 +1,19 @@
-import src.db_autotest.m_lib.config.config as cn
 from typing import TYPE_CHECKING
+from src.db_autotest.m_lib.m_config.config import M_Config
 
 from src.db_autotest.m_lib.m_table.m_row import M_Row
 if TYPE_CHECKING:
     from src.db_autotest.m_lib.m_object.m_entity import M_Entity
 
 
-def fill_entity_dict(m_entity: 'M_Entity', env=cn.Config.main_env):
+def fill_entity_dict(m_entity: 'M_Entity', env=M_Config.main_env):
     """
     docstring
     """
     for i, x in enumerate(m_entity.row_cols):
         m_entity.row_dict[x] = m_entity.row_data[i]
 
-def get_column_i(m_entity: 'M_Entity', column: str, env=cn.Config.main_env) -> int:
+def get_column_i(m_entity: 'M_Entity', column: str, env=M_Config.main_env) -> int:
     """
     docstring
     """

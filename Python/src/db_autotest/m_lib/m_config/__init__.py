@@ -8,7 +8,7 @@ config_default = configparser.ConfigParser()
 try:
     config_default.read(file_path)
     print(config_default.get('DEFAULT', 'main_env'))    
-    cn.Config.set_config(config_default)
+    cn.M_Config.set_config(config_default)
 
 except Exception as e:
    print('Error', e)

@@ -2,10 +2,7 @@ import unittest
 import configparser
 import os
 
-from src.db_autotest.m_lib.config.config import Config
-
-
-
+from src.db_autotest.m_lib.m_config.config import M_Config
 
 class TestLoads(unittest.TestCase):
   
@@ -52,7 +49,7 @@ class TestLoads(unittest.TestCase):
         """
         docstring
         """
-        print(Config.config.get('DEFAULT','main_env'))
+        print(M_Config.config.get('DEFAULT','main_env'))
 
 
 if __name__ == '__main__':

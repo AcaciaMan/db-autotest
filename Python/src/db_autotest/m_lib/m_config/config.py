@@ -3,15 +3,9 @@ import sqlite3
 from src.db_autotest.m_lib.utils.connect_oracle import ConnectOracle
 import configparser
 
-def con(new = None):
-    return Config.con(new)
-
-def meta(new = None):
-    return Config.meta(new)
-
 # TODO add env creation in meta.m_env table
 
-class Config:
+class M_Config:
     config  = configparser.ConfigParser()
     main_con = None
     main_env: str = None
@@ -84,4 +78,5 @@ class Config:
     def connect_meta(cls):
         db_meta = cls.config['META_DB']
         return sqlite3.connect(db_meta.get('db_path'))
-        #print(cls.meta_con.total_changes)         
+        #print(cls.meta_con.total_changes)     
+

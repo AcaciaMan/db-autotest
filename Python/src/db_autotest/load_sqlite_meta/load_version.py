@@ -11,7 +11,7 @@ from src.db_autotest.load_sqlite_meta.load_version_idx_cols import VersionIdxCol
 from src.db_autotest.load_sqlite_meta.load_version_indexes import VersionIndexes
 from src.db_autotest.load_sqlite_meta.load_version_tab_cols import VersionTabCols
 import src.db_autotest.load_sqlite_meta.load_version_tables as vt
-import src.db_autotest.m_lib.config.config as cn
+import src.db_autotest.m_lib.m_config.config as cn
 
 
 class LoadVersion(object):
