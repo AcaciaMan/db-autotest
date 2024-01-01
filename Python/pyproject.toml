@@ -26,7 +26,4 @@ Homepage = "https://github.com/AcaciaMan/db-autotest"
 Issues = "https://github.com/AcaciaMan/db-autotest/issues"
 
 [tool.hatch.build.targets.wheel]
-only-include = ["src/db_autotest"]
-
-[tool.hatch.build.targets.wheel.sources]
-"src" = ""
+packages = ["src/db_autotest"]
