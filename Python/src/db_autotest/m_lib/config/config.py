@@ -11,7 +11,7 @@ def meta(new = None):
 # TODO add env creation in meta.m_env table
 
 class Config:
-    prime_service = None
+    prime_service = {}
     conn = None
     db_host = None
     db_user = None
@@ -20,6 +20,7 @@ class Config:
     main_env = None
     meta_con = None
     env_dict = {}
+    fetch_child_rows:int = 1000
 
     @classmethod
     def set_variables(cls, prime_service_):
@@ -28,6 +29,7 @@ class Config:
         """
         cls.prime_service = prime_service_
         cls.main_env = cls.prime_service["main_env"]["name"]
+        cls.fetch_child_rows = cls.prime_service["fetch_child_rows"]
         cls.retrieve_env(cls.prime_service["env"])
         cls.db_type = cls.env_dict[cls.main_env]["db_type"]
 

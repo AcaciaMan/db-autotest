@@ -11,7 +11,7 @@ class M_Relation(object):
 
     relations = {}
 
-    def __init__(self, parent: M_Entity, child: M_Entity, fetch_rows: int = cn.Config.prime_service["fetch_child_rows"]):
+    def __init__(self, parent: M_Entity, child: M_Entity, fetch_rows: int = cn.Config.fetch_child_rows):
         """
         docstring
         """
