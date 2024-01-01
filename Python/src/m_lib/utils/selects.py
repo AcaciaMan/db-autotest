@@ -1,4 +1,4 @@
-import src.lib.config.config as cn
+import src.m_lib.config.config as cn
 
 class GetValues(object):
     """

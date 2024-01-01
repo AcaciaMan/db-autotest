@@ -1,5 +1,5 @@
 import unittest
-from src.lib.utils.m_yaml import M_Yaml
+from src.m_lib.utils.m_yaml import M_Yaml
 from src.lite_object.c_m_table import C_M_Table
 from src.lite_object.c_m_table_names import C_M_TableNames
 

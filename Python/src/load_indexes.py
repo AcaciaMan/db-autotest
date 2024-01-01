@@ -1,4 +1,4 @@
-import lib.config.config as cn
+import m_lib.config.config as cn
 import sqlite3
 
 cur = cn.con.cursor()

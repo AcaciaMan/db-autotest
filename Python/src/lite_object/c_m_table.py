@@ -1,11 +1,11 @@
-from src.lib.m_object.m_class import M_Class
-from src.lib.m_object.m_entity import M_Entity
-from src.lib.m_object.m_relation import M_Relation
-from src.lib.m_object.m_str_type_enum import M_StructureType
-from src.lib.m_object.m_structure import M_Structure
-from src.lib.m_table.m_row import m_column_r, m_object_detail_r, m_object_r
-from src.lib.m_table.m_table import m_column, m_object, m_object_detail
-from src.lib.utils.m_entity_utils import get_column_i
+from src.m_lib.m_object.m_class import M_Class
+from src.m_lib.m_object.m_entity import M_Entity
+from src.m_lib.m_object.m_relation import M_Relation
+from src.m_lib.m_object.m_str_type_enum import M_StructureType
+from src.m_lib.m_object.m_structure import M_Structure
+from src.m_lib.m_table.m_row import m_column_r, m_object_detail_r, m_object_r
+from src.m_lib.m_table.m_table import m_column, m_object, m_object_detail
+from src.m_lib.utils.m_entity_utils import get_column_i
 
 
 class C_M_Table(object):

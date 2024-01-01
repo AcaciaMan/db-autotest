@@ -1,9 +1,9 @@
-import src.lib.config.config as cn
+import src.m_lib.config.config as cn
 from typing import TYPE_CHECKING
 
-from src.lib.m_table.m_row import M_Row
+from src.m_lib.m_table.m_row import M_Row
 if TYPE_CHECKING:
-    from src.lib.m_object.m_entity import M_Entity
+    from src.m_lib.m_object.m_entity import M_Entity
 
 
 def fill_entity_dict(m_entity: 'M_Entity', env=cn.Config.main_env):

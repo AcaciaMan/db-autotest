@@ -1,6 +1,6 @@
 import sqlite3
 
-from src.lib.utils.connect_oracle import ConnectOracle
+from src.m_lib.utils.connect_oracle import ConnectOracle
 
 def con(new = None):
     return Config.con(new)

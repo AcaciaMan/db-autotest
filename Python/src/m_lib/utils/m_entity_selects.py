@@ -1,6 +1,6 @@
-import src.lib.config.config as cn
-from src.lib.m_object.m_entity import M_Entity
-from src.lib.utils.m_entity_utils import fill_entity_dict
+import src.m_lib.config.config as cn
+from src.m_lib.m_object.m_entity import M_Entity
+from src.m_lib.utils.m_entity_utils import fill_entity_dict
 
 
 def get_entity_rows(

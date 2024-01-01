@@ -1,6 +1,6 @@
 import unittest
 
-from src.lib.config import config as cn  # noqa: E402
+from src.m_lib.config import config as cn  # noqa: E402
 
 class Test_Config(unittest.TestCase):
 

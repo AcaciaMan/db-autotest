@@ -1,5 +1,5 @@
 
-import lib.config.config as cn
+import m_lib.config.config as cn
 
 
 print('something main: ' + cn.Config.main_env)

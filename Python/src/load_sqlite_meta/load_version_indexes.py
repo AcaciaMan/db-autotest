@@ -1,5 +1,5 @@
-import src.lib.config.config as cn
-from src.lib.utils.selects import GetValues
+import src.m_lib.config.config as cn
+from src.m_lib.utils.selects import GetValues
 
 class VersionIndexes:
 

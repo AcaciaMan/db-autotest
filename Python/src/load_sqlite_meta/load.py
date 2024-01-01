@@ -1,4 +1,4 @@
-import src.lib.config.config as cn  # noqa: F401
+import src.m_lib.config.config as cn  # noqa: F401
 
 from src.load_sqlite_meta.load_columns import LoadColumns
 from src.load_sqlite_meta.load_indexes import LoadIndexes

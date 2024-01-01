@@ -1,8 +1,8 @@
-from src.lib.config.config import Config
-from src.lib.m_object.m_str_type_enum import M_StructureType
-from src.lib.m_table.m_row import M_Row
-from src.lib.m_table.m_table import M_Table
-from src.lib.utils.m_entity_utils import fill_entity_dict
+from src.m_lib.config.config import Config
+from src.m_lib.m_object.m_str_type_enum import M_StructureType
+from src.m_lib.m_table.m_row import M_Row
+from src.m_lib.m_table.m_table import M_Table
+from src.m_lib.utils.m_entity_utils import fill_entity_dict
 
 class M_Entity(object):
     """

@@ -6,12 +6,12 @@
 
 
 # Select version id
-from src.lib.utils.selects import GetValues
+from src.m_lib.utils.selects import GetValues
 from src.load_sqlite_meta.load_version_idx_cols import VersionIdxCols
 from src.load_sqlite_meta.load_version_indexes import VersionIndexes
 from src.load_sqlite_meta.load_version_tab_cols import VersionTabCols
 import src.load_sqlite_meta.load_version_tables as vt
-import src.lib.config.config as cn
+import src.m_lib.config.config as cn
 
 
 class LoadVersion(object):

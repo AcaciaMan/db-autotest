@@ -1,6 +1,6 @@
 import unittest
 
-from src.lib.utils.generate_tab_cols import GenerateTabCols
+from src.m_lib.utils.generate_tab_cols import GenerateTabCols
 
 class TestGen(unittest.TestCase):
 

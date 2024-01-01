@@ -1,7 +1,7 @@
-from src.lib.m_table.m_table import m_column, m_object, m_object_detail
-from src.lib.utils.m_entity_utils import add_db_code_alias, apply_to_all_env
+from src.m_lib.m_table.m_table import m_column, m_object, m_object_detail
+from src.m_lib.utils.m_entity_utils import add_db_code_alias, apply_to_all_env
 from src.lite_object.c_m_table import C_M_Table
-import src.lib.config.config as cn
+import src.m_lib.config.config as cn
 
 
 class C_M_TableNames(C_M_Table):

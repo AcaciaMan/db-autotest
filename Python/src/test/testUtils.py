@@ -1,6 +1,6 @@
 import unittest
 
-from src.lib.m_object.m_str_type_enum import M_StructureType
+from src.m_lib.m_object.m_str_type_enum import M_StructureType
 
 class Test_M_Dict(unittest.TestCase):
 

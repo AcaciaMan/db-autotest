@@ -1,9 +1,9 @@
-from src.lib.m_object.m_str_type_enum import M_StructureType
+from src.m_lib.m_object.m_str_type_enum import M_StructureType
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.lib.m_object.m_relation import M_Relation
-    from src.lib.m_object.m_entity import M_Entity
+    from src.m_lib.m_object.m_relation import M_Relation
+    from src.m_lib.m_object.m_entity import M_Entity
 
 class M_Structure(object):
     """
