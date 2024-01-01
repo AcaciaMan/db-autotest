@@ -19,7 +19,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.prime_service['tables_module']
+        path_tabs = cn.Config.config.get('DEFAULT','tables_module')
 
         started = 'Generated Code Start'
         ended = 'Generated Code End'
@@ -51,7 +51,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.prime_service['tables_module']
+        path_tabs = cn.Config.config.get('DEFAULT','tables_module')
 
         started = 'Generated Code Start'
 
@@ -109,7 +109,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.prime_service['rows_module']
+        path_tabs = cn.Config.config.get('DEFAULT','rows_module')
 
         started = 'Generated Code Start'
         ended = 'Generated Code End'
@@ -140,7 +140,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.prime_service['rows_module']
+        path_tabs = cn.Config.config.get('DEFAULT','rows_module')
 
         started = 'Generated Code Start'
 

@@ -17,6 +17,7 @@ class Config:
     main_env: str = None
     meta_con = None
     fetch_child_rows:int = 1000
+    env_dict = {}
 
 
     @classmethod
@@ -29,6 +30,9 @@ class Config:
         cls.config = config
         cls.main_env = config.get('DEFAULT', 'main_env')
         cls.fetch_child_rows = config.getint('DEFAULT', 'fetch_child_rows')
+        cls.env_dict = {}
+        for x in ','.split(cls.config.get('DEFAULT','env')):
+            cls.env_dict[x] = x.upper()
 
     @classmethod
     def connect_main_sqlite(cls):
