@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "module": "${command:extension.commandvariable.file.relativeFileDotsNoExtension}",
-            "justMyCode": true
+            "justMyCode": false
         }
     ]
 }

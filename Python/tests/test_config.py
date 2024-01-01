@@ -1,6 +1,6 @@
 import unittest
 
-from src.db_autotest.m_lib.m_config.config import M_Config
+from db_autotest.m_lib.m_config.config import M_Config
 
 class Test_Config(unittest.TestCase):
 

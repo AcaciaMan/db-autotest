@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
-from src.db_autotest.m_lib.m_config.config import M_Config
+from db_autotest.m_lib.m_config.config import M_Config
 
-from src.db_autotest.m_lib.m_table.m_row import M_Row
+from db_autotest.m_lib.m_table.m_row import M_Row
 if TYPE_CHECKING:
-    from src.db_autotest.m_lib.m_object.m_entity import M_Entity
+    from db_autotest.m_lib.m_object.m_entity import M_Entity
 
 
 def fill_entity_dict(m_entity: 'M_Entity', env=M_Config.main_env):

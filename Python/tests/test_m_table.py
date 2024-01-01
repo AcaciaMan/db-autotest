@@ -1,6 +1,6 @@
 import unittest
-from src.db_autotest.m_lib.m_table import m_table as t  # noqa: E402
-from src.db_autotest.m_lib.m_table import m_row as r
+from db_autotest.m_lib.m_table import m_table as t  # noqa: E402
+from db_autotest.m_lib.m_table import m_row as r
 
 class Test_M_Table(unittest.TestCase):
 

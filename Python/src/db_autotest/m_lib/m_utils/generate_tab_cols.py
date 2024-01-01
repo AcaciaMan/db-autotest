@@ -7,8 +7,8 @@
 #   add dict for each env as list of columns what are not LOB
 #   add dict of columns
 
-import src.db_autotest.m_lib.m_config.config as cn
-from src.db_autotest.m_lib.m_utils.selects import GetValues
+import db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_utils.selects import GetValues
 
 class GenerateTabCols(object):
     """

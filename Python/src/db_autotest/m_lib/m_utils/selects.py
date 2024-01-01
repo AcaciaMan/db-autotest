@@ -1,4 +1,4 @@
-import src.db_autotest.m_lib.m_config.config as cn
+import db_autotest.m_lib.m_config.config as cn
 
 class GetValues(object):
     """

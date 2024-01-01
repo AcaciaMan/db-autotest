@@ -6,12 +6,12 @@
 
 
 # Select version id
-from src.db_autotest.m_lib.m_utils.selects import GetValues
-from src.db_autotest.load_sqlite_meta.load_version_idx_cols import VersionIdxCols
-from src.db_autotest.load_sqlite_meta.load_version_indexes import VersionIndexes
-from src.db_autotest.load_sqlite_meta.load_version_tab_cols import VersionTabCols
-import src.db_autotest.load_sqlite_meta.load_version_tables as vt
-import src.db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_utils.selects import GetValues
+from db_autotest.load_sqlite_meta.load_version_idx_cols import VersionIdxCols
+from db_autotest.load_sqlite_meta.load_version_indexes import VersionIndexes
+from db_autotest.load_sqlite_meta.load_version_tab_cols import VersionTabCols
+import db_autotest.load_sqlite_meta.load_version_tables as vt
+import db_autotest.m_lib.m_config.config as cn
 
 
 class LoadVersion(object):

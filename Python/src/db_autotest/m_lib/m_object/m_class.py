@@ -1,5 +1,5 @@
-from src.db_autotest.m_lib.m_object.m_structure import M_Structure
-from src.db_autotest.m_lib.m_utils.m_entity_selects import get_entity_rows
+from db_autotest.m_lib.m_object.m_structure import M_Structure
+from db_autotest.m_lib.m_utils.m_entity_selects import get_entity_rows
 
 
 class M_Class(object):

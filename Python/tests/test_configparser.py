@@ -2,7 +2,7 @@ import unittest
 import configparser
 import os
 
-from src.db_autotest.m_lib.m_config.config import M_Config
+from db_autotest.m_lib.m_config.config import M_Config
 
 class TestLoads(unittest.TestCase):
   

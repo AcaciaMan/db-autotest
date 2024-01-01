@@ -1,8 +1,8 @@
-from src.db_autotest.m_lib.m_config.config import M_Config
-from src.db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
-from src.db_autotest.m_lib.m_table.m_row import M_Row
-from src.db_autotest.m_lib.m_table.m_table import M_Table
-from src.db_autotest.m_lib.m_utils.m_entity_utils import fill_entity_dict
+from db_autotest.m_lib.m_config.config import M_Config
+from db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
+from db_autotest.m_lib.m_table.m_row import M_Row
+from db_autotest.m_lib.m_table.m_table import M_Table
+from db_autotest.m_lib.m_utils.m_entity_utils import fill_entity_dict
 
 class M_Entity(object):
     """
