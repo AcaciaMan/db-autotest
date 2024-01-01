@@ -24,6 +24,8 @@ class Config:
         """
         docstring
         """
+        cls.close_main()
+        cls.close_meta()
         cls.config = config
         cls.main_env = config.get('DEFAULT', 'main_env')
         cls.fetch_child_rows = config.getint('DEFAULT', 'fetch_child_rows')
@@ -55,6 +57,7 @@ class Config:
     def close_main(cls):
         if cls.main_con is not None:
             cls.main_con.close()
+            cls.main_con = None
 
 
     @classmethod
@@ -71,6 +74,7 @@ class Config:
     def close_meta(cls):
         if cls.meta_con is not None:
             cls.meta_con.close
+            cls.meta_con = None
 
     @classmethod
     def connect_meta(cls):
