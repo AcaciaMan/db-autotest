@@ -1,4 +1,4 @@
-# Install Python
+# Install Python and use in VSCode
 
 ## Install Python extension
 
@@ -26,7 +26,8 @@ C:\Users\User\.vscode\extensions\alexcvzz.vscode-sqlite-0.14.1\dist\extension.js
 
 ## Add configurations (launch.json) and then use F5 to debug modules
 
-`{
+```json
+{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
@@ -40,8 +41,11 @@ C:\Users\User\.vscode\extensions\alexcvzz.vscode-sqlite-0.14.1\dist\extension.js
             "justMyCode": true
         }
     ]
-}`
+}
+```
 
 ## Add pyYaml
 
-`pip install pyyaml`
+```cmd
+pip install pyyaml
+```
