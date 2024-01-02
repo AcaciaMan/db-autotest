@@ -8,7 +8,7 @@ print, save data as YAML file, another is to use retrieved object in data compar
 Better explanation is code example from [c_m_table.py](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/lite_object/c_m_table.py).
 
 
-```
+```python
 
 class C_M_Table(object):
 
@@ -65,7 +65,7 @@ def columnSortFunc(self, e):
 Output can be saved as YAML file [test.yaml](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/yaml/test.yaml)
 
 
-```
+```yaml
 table: {'m_object_detail_id': 4, 'm_object_id': 4, 'm_version_id': 1, 'idx_table_id': None, 'm_unique': 0, 'status': 'VALID', 'enabled': 1, 'droped': 0}
 
 table_nodes: [
