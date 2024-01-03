@@ -24,7 +24,7 @@ py -m build
 
 py -m pip install --upgrade twine
 
-py -m twine upload --repository testpypi --config_file .pypirc dist/*
+py -m twine upload --repository testpypi --config-file .pypirc dist/*
 
 py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
 
