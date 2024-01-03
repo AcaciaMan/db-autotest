@@ -1,4 +1,4 @@
-import db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_config.config import M_Config as cn
 
 class GetValues(object):
     """
@@ -10,8 +10,8 @@ class GetValues(object):
 
         cur.execute(
         '''
-        select m.M_ENV_ID from m_env m where lower(m.NAME) = lower(?)
-        ''', (cn.Config.main_env,)
+        select m.M_ENV_ID from m_env m where m.NAME = ?
+        ''', (cn.main_env,)
         )
 
         r = cur.fetchone()

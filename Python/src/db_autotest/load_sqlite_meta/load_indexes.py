@@ -1,4 +1,4 @@
-import db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_config.config import M_Config as cn
 
 class LoadIndexes(object):
     """
@@ -24,7 +24,7 @@ class LoadIndexes(object):
 
         lCur = cur.fetchall()
 
-        cur.close
+        cur.close()
 
         #Connecting to sqlite
         meta = cn.meta().cursor()

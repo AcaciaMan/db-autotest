@@ -11,7 +11,7 @@ from db_autotest.load_sqlite_meta.load_version_idx_cols import VersionIdxCols
 from db_autotest.load_sqlite_meta.load_version_indexes import VersionIndexes
 from db_autotest.load_sqlite_meta.load_version_tab_cols import VersionTabCols
 import db_autotest.load_sqlite_meta.load_version_tables as vt
-import db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_config.config import M_Config as cn
 
 
 class LoadVersion(object):
@@ -35,7 +35,7 @@ class LoadVersion(object):
         )
 
         r = cur.fetchone()
-        (inserted_id, ) = r if r else None
+        inserted_id = r[0] if r else None
         print('ins_id', inserted_id)
 
         cur.close()

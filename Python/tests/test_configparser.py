@@ -33,7 +33,7 @@ class TestLoads(unittest.TestCase):
 
 
     def get_config_file(self):
-        env = os.environ.get('DB_AUTOTEST_CONFIG_FILE', 'db_autotest.toml')
+        env = os.environ.get('DB_AUTOTEST_CONFIG_FILE', 'db_autotest.ini')
         return env
 
     def testLaodDefaultConfig(self):

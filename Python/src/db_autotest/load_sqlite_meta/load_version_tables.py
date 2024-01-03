@@ -1,4 +1,4 @@
-import db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_config.config import M_Config as cn
 from db_autotest.m_lib.m_utils.selects import GetValues
 
 class VersionTables:
@@ -44,7 +44,7 @@ class VersionTables:
             cur.execute(''' SELECT lower(name) FROM sqlite_schema WHERE type ='table' and name = upper(?) ''', (name, ))
 
             r = cur.fetchone()
-            (db_name, ) = r if r else None
+            db_name = r[0] if r else None
             droped = 0 if db_name else 1
 
             cur_ins.execute(''' insert into m_object_detail (m_object_id, m_version_id, droped) values (?,?,?) ''', (m_object_id, self.m_version_id, droped))

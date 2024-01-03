@@ -9,7 +9,7 @@ class M_Config:
     config  = configparser.ConfigParser()
     main_con = None
     main_env: str = None
-    meta_con = None
+    meta_con: sqlite3.Connection = None
     fetch_child_rows:int = 1000
     env_dict = {}
 
@@ -59,7 +59,7 @@ class M_Config:
 
 
     @classmethod
-    def meta(cls, new = None):
+    def meta(cls, new = None) -> sqlite3.Connection:
         if cls.meta_con is None:
             cls.meta_con = cls.connect_meta()
 

@@ -11,7 +11,7 @@ class LoadTables(object):
         docstring
         """
 
-        cur = cn.con().cursor()
+        cur = cn.M_Config.con().cursor()
 
         cur.execute(
         '''
@@ -26,10 +26,10 @@ class LoadTables(object):
 
         lCur = cur.fetchall()
 
-        cur.close
+        cur.close()
 
         #Connecting to sqlite
-        meta = cn.meta().cursor()
+        meta = cn.M_Config.meta().cursor()
 
         inserted = 0
         existing = 0
@@ -49,7 +49,7 @@ class LoadTables(object):
             else:    
 
                 # Commit your changes in the database
-                cn.meta().commit()
+                cn.M_Config.meta().commit()
                 inserted = inserted + 1
 
         meta.close()
