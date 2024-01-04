@@ -12,8 +12,10 @@ class M_Entity(object):
         """
         docstring
         """
+        self.id = []
         self.row_cols = []
         self.row_data = ()
+        # TODO point to index in row data, not value
         self.row_dict = {}
         self.pretty_row = []    
 
@@ -24,7 +26,6 @@ class M_Entity(object):
         self.row = row
         self.m_type = m_type
 
-        self.id = []
         self.name = name
 
         self.rows = []
@@ -44,6 +45,7 @@ class M_Entity(object):
         """
         self._row = value
         self.pretty_row = self._row.c[M_Config.main_env]
+        self.id = self._row.pk[M_Config.main_env]
 
     @property
     def name(self):

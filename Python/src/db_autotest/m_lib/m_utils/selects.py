@@ -102,3 +102,28 @@ class GetValues(object):
         cur.close()
 
         return row
+    
+    @staticmethod
+    def get_pk_columns(m_object_detail_id):
+        """
+        Select columns
+        """
+        
+        cur = cn.meta().cursor()
+
+        cur.execute(
+            '''
+            select o.name 
+            from m_column m, m_object o 
+            where m.m_object_detail_id = ?
+            and o.m_object_id =  m.m_column_obj_id 
+            and lower(m.type) not like '%lob%' 
+            and m.pk = 1
+            order by sort
+            ''', (m_object_detail_id, ))
+
+        row = cur.fetchall()
+
+        cur.close()
+
+        return row

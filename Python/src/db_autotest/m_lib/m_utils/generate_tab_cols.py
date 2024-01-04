@@ -7,7 +7,7 @@
 #   add dict for each env as list of columns what are not LOB
 #   add dict of columns
 
-import db_autotest.m_lib.m_config.config as cn
+from db_autotest.m_lib.m_config.config  import M_Config as cn
 from db_autotest.m_lib.m_utils.selects import GetValues
 
 class GenerateTabCols(object):
@@ -19,7 +19,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.config.get('DEFAULT','tables_module')
+        path_tabs = cn.config.get('DEFAULT','tables_module')
 
         started = 'Generated Code Start'
         ended = 'Generated Code End'
@@ -51,7 +51,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.config.get('DEFAULT','tables_module')
+        path_tabs = cn.config.get('DEFAULT','tables_module')
 
         started = 'Generated Code Start'
 
@@ -84,7 +84,7 @@ class GenerateTabCols(object):
                             s = set()
 
                             # find for each env last list of columns
-                            for x in cn.Config.env_dict.keys():
+                            for x in cn.env_dict.keys():
                                 m_object_detail_id = GetValues.get_last_m_object_detail_id(t_id, x)
                                 if m_object_detail_id is not None:
                                     all_cols = GetValues.get_columns(m_object_detail_id)
@@ -109,7 +109,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.config.get('DEFAULT','rows_module')
+        path_tabs = cn.config.get('DEFAULT','rows_module')
 
         started = 'Generated Code Start'
         ended = 'Generated Code End'
@@ -140,7 +140,7 @@ class GenerateTabCols(object):
         """
         docstring
         """
-        path_tabs = cn.Config.config.get('DEFAULT','rows_module')
+        path_tabs = cn.config.get('DEFAULT','rows_module')
 
         started = 'Generated Code Start'
 
@@ -162,6 +162,8 @@ class dual_r(M_Row):
         super().__init__()
         self.c['dev'] = ['dummy']
         self.c['tst'] = ['dummy']
+        self.pk['dev'] = ['dummy']
+        self.pk['tst'] = ['dummy']         
                         '''
 
                         for t_id, t_name in all_tables:
@@ -171,8 +173,9 @@ class dual_r(M_Row):
                             f.write('        super().__init__()\n')
 
                             # find for each env last list of columns
-                            for x in cn.Config.env_dict.keys():
+                            for x in cn.env_dict.keys():
                                 l_c = []
+                                l_pk = []
                                 m_object_detail_id = GetValues.get_last_m_object_detail_id(t_id, x)
                                 if m_object_detail_id is not None:
                                     all_cols = GetValues.get_columns(m_object_detail_id)
@@ -180,6 +183,12 @@ class dual_r(M_Row):
                                         l_c.append("'" + col_name + "'")
 
                                     f.write("        self.c['"+ x +"'] = [" + ','.join(l_c) + "]\n")
+
+                                    all_cols = GetValues.get_pk_columns(m_object_detail_id)
+                                    for col_name in all_cols:
+                                        l_pk.append("'" + col_name[0] + "'")
+
+                                    f.write("        self.pk['"+ x +"'] = [" + ','.join(l_pk) + "]\n")
 
                             f.write('\n')
 
