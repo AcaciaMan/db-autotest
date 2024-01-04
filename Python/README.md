@@ -1,11 +1,10 @@
 # db-autotest
-DB Database test automation
+DB Database test automation. This python package allows to create database object structure and load data from database.
 
-This python package allows to create database object structure and load data from database. One further option is to
-print, save data as YAML file, another is to use retrieved object in data comparissons or new database object creation.
+One further option is to print, save data as YAML file, another is to use retrieved object in data comparissons or new database object creation.
 
 ## DB structure as object in Python
-Better explanation is code example from [c_m_table.py](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/lite_object/c_m_table.py).
+Better explanation is code example from [c_m_table.py](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/db_autotest/lite_object/c_m_table.py).
 
 
 ```python
@@ -13,39 +12,40 @@ Better explanation is code example from [c_m_table.py](https://github.com/Acacia
 class C_M_Table(object):
 
     def __init__(self):
-    
+
+        # ==================================== m_table ===============================
         self.t_m_table = M_Entity(m_object_detail(), m_object_detail_r(), name='table')
-        self.t_m_table.id.append(m_object_detail().m_object_detail_id)
         
+        # ==================================== m_object ===============================
         self.t_m_object = M_Entity(m_object(), m_object_r(), name='object')
-        self.t_m_object.id.append(m_object().m_object_id)
 
         self.r_m_object_table = M_Relation(self.t_m_object, self.t_m_table)
         self.s_m_object = M_Structure(self.t_m_object, M_StructureType.PARENT)
 
+        # ==================================== m_column ===============================
         self.t_m_column = M_Entity(m_column(), m_column_r(), name='column')
-        self.t_m_column.id.append(m_column().m_column_id)
         self.t_m_column.sortFunc = columnSortFunc.__get__(self.t_m_column)
 
         self.r_m_table_column = M_Relation(self.t_m_table, self.t_m_column)
         self.s_m_column = M_Structure(self.t_m_column, M_StructureType.CHILD)
 
+        # ==================================== m_index ===============================
         self.t_m_index = M_Entity(m_object_detail(), m_object_detail_r(), name='index')
-        self.t_m_index.id.append(m_object_detail().m_object_detail_id)
 
         self.r_m_table_index = M_Relation(self.t_m_table, self.t_m_index)
         self.r_m_table_index.parent_ids = [m_object_detail().m_object_id, m_object_detail().m_version_id]
         self.r_m_table_index.child_ids = [m_object_detail().idx_table_id, m_object_detail().m_version_id]
         self.s_m_index = M_Structure(self.t_m_index, M_StructureType.CHILD)
 
+        # ==================================== m_idx_column ===============================
         self.t_m_idx_column = M_Entity(m_column(), m_column_r(), name='idx_column')
-        self.t_m_idx_column.id.append(m_column().m_column_id)
         self.t_m_idx_column.sortFunc = columnSortFunc.__get__(self.t_m_idx_column)
 
         self.r_m_idx_column = M_Relation(self.t_m_index, self.t_m_idx_column)
         self.s_m_idx_column = M_Structure(self.t_m_idx_column, M_StructureType.CHILD)        
         self.s_m_index.child.append([self.s_m_idx_column, self.r_m_idx_column])
 
+        # ==================================== s_m_table ===============================
         self.s_m_table = M_Structure(self.t_m_table)
         self.s_m_table.parent.append([self.s_m_object, self.r_m_object_table])
         self.s_m_table.child.append([self.s_m_column, self.r_m_table_column])
@@ -55,14 +55,13 @@ class C_M_Table(object):
 
 
 def columnSortFunc(self, e):
-
     return e[get_column_i(self, m_column().sort)]
 
     
 ```
 
 ## Output as YAML file
-Output can be saved as YAML file [test.yaml](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/yaml/test.yaml)
+Output can be saved as YAML file [test.yaml](https://github.com/AcaciaMan/db-autotest/blob/main/Python/tests/yaml/test.yaml)
 
 
 ```yaml
@@ -92,7 +91,7 @@ table_nodes: [
 
 ## More examples
 
-More examples can be found in files [c_m_table_names.py](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/lite_object/c_m_table_names.py) and [test_names.yaml](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/yaml/test_names.yaml)
+More examples can be found in files [c_m_table_names.py](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/db_autotest/lite_object/c_m_table_names.py) and [test_names.yaml](https://github.com/AcaciaMan/db-autotest/blob/main/Python/tests/yaml/test_names.yaml)
 
 ## Environment setup
 Docs folder contains [initial setup description](https://github.com/AcaciaMan/db-autotest/blob/main/Docs/python_setup.md) and [SQLite database for db metadata](https://github.com/AcaciaMan/db-autotest/blob/main/Docs/m_sqlite.db).
