@@ -4,7 +4,7 @@
 
 ```cmd
 
-sqlite3 C:\work\GitHub\AutoTest\Docs\m_sqlite.db
+sqlite3 C:\work\GitHub\db-autotest\Docs\m_sqlite.db
 
 .output ./backup_schema.sql
 .schema
