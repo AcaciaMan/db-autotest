@@ -18,3 +18,14 @@ net stop SQLSERVERAGENT
 net stop MSSQLSERVER
 
 ```
+
+```sql
+
+select * 
+  from information_schema.tables
+  where 1=1
+  and TABLE_TYPE = 'BASE TABLE';
+
+  
+
+```
