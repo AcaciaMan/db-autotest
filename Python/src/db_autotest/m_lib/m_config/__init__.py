@@ -3,7 +3,7 @@ from . import config as cn
 import os
 
 file_path = os.environ.get('DB_AUTOTEST_CONFIG_FILE', 'db_autotest.ini')
-config_default = configparser.ConfigParser()
+config_default = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
 
 try:
     config_default.read(file_path)
