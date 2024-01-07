@@ -43,7 +43,7 @@ class GetValues(object):
 
         cur.execute(
             '''
-            select m_object_id, name from m_object where type = 'INDEX'
+            select m_object_id, schema, name from m_object where type = 'INDEX'
             ''')
 
         row = cur.fetchall()

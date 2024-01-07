@@ -15,7 +15,7 @@ class MSS_LoadVersionTables(object):
         self.l_tables = []
 
     def __call__(self, *args: Any, **kwds: Any):
-        self.tables = list(GetValues.get_all_tables())
+        self.tables = GetValues.get_all_tables()
         return self
     
 
