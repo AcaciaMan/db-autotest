@@ -1,15 +1,12 @@
 import sqlite3
 import configparser
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from db_autotest.m_lib.m_utils.connect_db import M_ConnectFactory, M_Connect
+from db_autotest.m_lib.m_utils.connect_db import M_ConnectFactory, M_Connect
 
 class M_Config:
-    config  = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
+    config: configparser.ConfigParser = None
     main_con = None
+    meta_con = None
     main_env: str = None
-    meta_con: None
     fetch_child_rows:int = 1000
     env_dict = {}
 

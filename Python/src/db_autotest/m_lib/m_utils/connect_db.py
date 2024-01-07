@@ -1,8 +1,9 @@
 #import oracledb
+import importlib
 import sqlite3
-
-from db_autotest.m_lib.m_config.config import M_Config
-
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from db_autotest.m_lib.m_config import config
 
 class M_Connect(object):
     """
@@ -10,16 +11,17 @@ class M_Connect(object):
     """
 
     def __init__(self, type = 'sqlite'):
+        self.config: config = importlib.import_module('db_autotest.m_lib.m_config.config')
         self.type = type
 
 
     def getConn(self):
-        db_main = M_Config.config[M_Config.main_env.upper()]
+        db_main = self.config.M_Config.config[self.config.M_Config.main_env.upper()]
         conn = sqlite3.connect(db_main.get("db_path"))
         return conn
     
     def getMeta(self):
-        db_meta = M_Config.config['META_DB']
+        db_meta = self.config.M_Config.config['META_DB']
         conn = sqlite3.connect(db_meta.get('db_path'))
         return conn
 
@@ -35,9 +37,9 @@ class M_ConnectMssql(M_Connect):
         super().__init__(type)
 
     def getConn(self):
-        pyodbc = __import__('pyodbc')
-        db_main = M_Config.config[M_Config.main_env.upper()]
-        conn = pyodbc.connect(db_main.get('conn_str')) 
+        m_pyodbc = importlib.import_module('pyodbc')
+        db_main = self.config.M_Config.config[config.M_Config.main_env.upper()]
+        conn = m_pyodbc.connect(db_main.get('conn_str')) 
         return conn
 
 
