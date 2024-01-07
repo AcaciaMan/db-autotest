@@ -8,7 +8,7 @@ class Load(object):
     """
     docstring
     """
-    
+    # TODO rewrite to use correct object names in correct capitalizing
     def load(self):
         """
         docstring
