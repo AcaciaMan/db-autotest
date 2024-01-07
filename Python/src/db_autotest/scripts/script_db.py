@@ -11,8 +11,9 @@ def script_add_ini_envs_to_meta_db():
         try:
             cur.execute("""
                 insert into m_env (name) values (?)
-                """, x)
-        except Exception:
+                """, (x,))
+        except Exception as e:  # noqa: F841
+            # print(e)
             print("Env already in meta db", x)
 
     M_Config.meta().commit()

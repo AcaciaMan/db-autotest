@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../db-autotest-mssql"
+		},
+		{
+			"path": "../Python"
+		}
+	],
+    "settings": {}
+}
