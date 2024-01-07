@@ -13,8 +13,6 @@ class dual(M_Table):
         super().__init__()
         self.dummy='dummy'
 
-# TODO load primary keys from meta data
-
 # ===================== Generated Code Start ======================================================
 class m_env(M_Table):
     def __init__(self):

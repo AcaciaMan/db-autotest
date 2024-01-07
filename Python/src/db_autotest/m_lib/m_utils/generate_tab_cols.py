@@ -68,7 +68,12 @@ class GenerateTabCols(object):
                         # select all tables
                         all_tables = GetValues.get_all_tables()
 
-                        for t_id, t_name in all_tables:
+                        # TODO solve tables naming problems when multiple schemas
+
+                        for t_id, t_schema, t_name in all_tables:
+
+                            t_name = t_name.lower()
+                            t_schema = t_schema.lower()
 
                             '''
                             class dual(M_Table):
@@ -166,7 +171,11 @@ class dual_r(M_Row):
         self.pk['tst'] = ['dummy']         
                         '''
 
-                        for t_id, t_name in all_tables:
+                        # TODO solve tables naming problems when multiple schemas
+                        for t_id, t_schema, t_name in all_tables:
+
+                            t_name = t_name.lower()
+                            t_schema = t_schema.lower()
 
                             f.write('class ' + t_name + '_r(M_Row):\n')
                             f.write('    def __init__(self):\n')
