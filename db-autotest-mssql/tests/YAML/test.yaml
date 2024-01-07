@@ -1,0 +1,4 @@
+person: {'m_person_id': 2, 'name': 'Lady at the desk', 'owner': 0}
+person_nodes: [
+  c_employee: {'m_employee_id': 1, 'm_person_id': 2, 'm_organization_id': 1, 'manager': 0}
+]

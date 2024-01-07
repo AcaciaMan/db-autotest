@@ -1,7 +1,7 @@
 # MSSQLSERVER scripts
 
 ```cmd
-net start MSSQLSERVER /f /m
+net start MSSQLSERVER
 
 net start SQLSERVERAGENT
 
