@@ -38,7 +38,7 @@ class M_ConnectMssql(M_Connect):
 
     def getConn(self):
         m_pyodbc = importlib.import_module('pyodbc')
-        db_main = self.config.M_Config.config[config.M_Config.main_env.upper()]
+        db_main = self.config.M_Config.config[self.config.M_Config.main_env.upper()]
         conn = m_pyodbc.connect(db_main.get('conn_str')) 
         return conn
 

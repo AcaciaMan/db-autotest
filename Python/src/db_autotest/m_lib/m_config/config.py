@@ -48,12 +48,12 @@ class M_Config:
     @classmethod
     def meta(cls, new = None) -> sqlite3.Connection:
         if cls.meta_con is None:
-            cls.meta_con = M_Connect.getMeta()
+            cls.meta_con = M_Connect().getMeta()
 
         if new is None:
             return cls.meta_con
         else:
-            return M_Connect.getMeta()
+            return M_Connect().getMeta()
 
     @classmethod
     def close_meta(cls):
