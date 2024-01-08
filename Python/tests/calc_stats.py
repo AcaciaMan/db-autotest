@@ -17,5 +17,5 @@ def analyze(packagedir):
 
     return stats
 
-print("Number of def statements:", analyze(r'C:\work\GitHub\AutoTest\Python')[ast.FunctionDef])
-print("Number of class statements:", analyze(r'C:\work\GitHub\AutoTest\Python')[ast.ClassDef])
+print("Number of def statements:", analyze(r'C:\work\GitHub\db-autotest\Python')[ast.FunctionDef])
+print("Number of class statements:", analyze(r'C:\work\GitHub\db-autotest\Python')[ast.ClassDef])
