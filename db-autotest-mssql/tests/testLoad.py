@@ -10,8 +10,6 @@ class TestLoads(unittest.TestCase):
         script_load_db_meta_structure()
         #LoadVersion().load()
         
-        
-
 
 if __name__ == '__main__':
     unittest.main()
