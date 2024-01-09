@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 # Create a blank image with the desired dimensions
 width = 24
 height = 24
-image = Image.new("RGB", (width, height), (0, 0, 0, 0))
+image = Image.new("RGB", (width, height), (255, 255, 255))
 draw = ImageDraw.Draw(image)
 
 # Set the font and size
