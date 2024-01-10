@@ -1,12 +1,8 @@
 import os
 from time import sleep
 
-
-
-#os.write(4, bytes('{"dt" : "This is a test"}\n', 'utf8'))
-
-os.write(4,'{"dt" : "This is a test"}\n'.encode('latin-1'))
-os.write(4,b'{"dt" : "This is a test"}\n')
+os.write(3,'{"dt" : "This is a test"}\n'.encode('latin-1'))
+# os.write(4,b'{"dt" : "This is a test"}\n')
 
 '''
 bytesMessage = (json.dumps('This is a test') + "\n").encode()
@@ -25,7 +21,7 @@ for i in range(2):
     'read in next message from parent Node process via built-in node IPC'
     # read and discard 8 bytes. Again, don't know why...
     # anything: int = None
-    anything = os.read(4, 2000)
+    anything = os.read(3, 2000)
     # read and parse 8 bytes as length in little Endian format
     # length = int.from_bytes(os.read(4, 8), "little")
     # read 'length' bytes and pass to json parser
