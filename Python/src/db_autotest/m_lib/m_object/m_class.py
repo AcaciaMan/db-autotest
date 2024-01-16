@@ -1,3 +1,4 @@
+from db_autotest.m_lib.m_config.config import M_Config
 from db_autotest.m_lib.m_object.m_structure import M_Structure
 from db_autotest.m_lib.m_utils.m_entity_selects import get_entity_rows
 
@@ -16,11 +17,11 @@ class M_Class(object):
         self.where: str = None
 
 
-    def load(self, m_id: list):
+    def load(self, m_id: list, con = M_Config.con):
         """
         Load table
         Load parent structure
         """
-        get_entity_rows(m_entity= self.m_structure.node, column=self.m_structure.node.id, value=m_id, fetch_rows=1, select=self.select, where=self.where)
+        get_entity_rows(m_entity= self.m_structure.node, column=self.m_structure.node.id, value=m_id, fetch_rows=1, select=self.select, where=self.where, con=con)
 
-        self.m_structure.load_nodes()
+        self.m_structure.load_nodes(con=con)

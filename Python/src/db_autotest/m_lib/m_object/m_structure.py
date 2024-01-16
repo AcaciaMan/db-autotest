@@ -1,3 +1,4 @@
+from db_autotest.m_lib.m_config.config import M_Config
 from db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
 from typing import TYPE_CHECKING
 
@@ -37,16 +38,16 @@ class M_Structure(object):
         self._m_type = value
         self.node.m_type = value
 
-    def load_nodes(self):
+    def load_nodes(self, con = M_Config.con):
         
         str1: M_Structure
         rel: M_Relation
         for str1, rel in self.parent:
-            rel.load_parent(str1, self)
-            str1.load_nodes()
+            rel.load_parent(str1, self, con=con)
+            str1.load_nodes(con=con)
 
         for str1, rel in self.child:
-            rel.load_childs(self, str1)
+            rel.load_childs(self, str1, con=con)
 
 
         # create for each loaded child a new structure and load nodes for them
@@ -75,7 +76,7 @@ class M_Structure(object):
         self.child = new_child
 
         for str1, rel in self.child:
-            str1.load_nodes()
+            str1.load_nodes(con=con)
 
 
     @property

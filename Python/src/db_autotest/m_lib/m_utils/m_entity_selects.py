@@ -11,6 +11,7 @@ def get_entity_rows(
     fetch_rows=M_Config.fetch_child_rows,    
     select: str = None,
     where: str = None,
+    con = M_Config.con
 ):
     """
     docstring
@@ -24,7 +25,7 @@ def get_entity_rows(
         for x in column:
             where = where + " and " + x + " = ?"
 
-    cur = M_Config.con().cursor()
+    cur = con().cursor()
 
     m_entity.row_cols = m_entity.row.c[env]
 

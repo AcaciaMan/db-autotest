@@ -26,15 +26,16 @@ class M_Relation(object):
         self.select: str = None
         self.where: str = None
 
-    def load_parent(self, s_parent: M_Structure, s_child: M_Structure):
+    def load_parent(self, s_parent: M_Structure, s_child: M_Structure, con = M_Config.con):
         get_entity_rows(
             m_entity=s_parent.node,
             column=self.parent_ids,
             value=self.get_node_values(self.child_ids, s_child.node),
             fetch_rows=1,
+            con=con
         )
 
-    def load_childs(self, s_parent: M_Structure, s_child: M_Structure):
+    def load_childs(self, s_parent: M_Structure, s_child: M_Structure, con = M_Config.con):
         get_entity_rows(
             m_entity=s_child.node,
             column=self.child_ids,
@@ -42,6 +43,7 @@ class M_Relation(object):
             fetch_rows=self.fetch_rows,
             select=self.select,
             where=self.where,
+            con=con
         )
 
     def get_node_values(self, ids: list, ent: M_Entity):
