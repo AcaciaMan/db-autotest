@@ -1,6 +1,6 @@
 from db_autotest.m_lib.m_object.m_class import M_Class
 from db_autotest.m_lib.m_object.m_entity import M_Entity
-from db_autotest.m_lib.m_object.m_object import M_Object
+from db_autotest.m_lib.m_object.m_object import M_Meta_DB_Decorator, M_Object, M_Object_Decorator, M_Table_Decorator
 from db_autotest.m_lib.m_object.m_relation import M_Relation
 from db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
 from db_autotest.m_lib.m_object.m_structure import M_Structure
@@ -9,6 +9,9 @@ from db_autotest.m_lib.m_table.m_table import m_column, m_object, m_object_detai
 from db_autotest.m_lib.m_utils.m_entity_utils import get_column_i
 
 
+@M_Object_Decorator
+@M_Meta_DB_Decorator
+@M_Table_Decorator
 class C_M_Table(M_Object):
     """
     docstring

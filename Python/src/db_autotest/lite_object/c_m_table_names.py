@@ -1,9 +1,12 @@
+from db_autotest.m_lib.m_object.m_object import M_Meta_DB_Decorator, M_Object_Decorator, M_Table_Decorator
 from db_autotest.m_lib.m_table.m_table import m_column, m_object, m_object_detail
 from db_autotest.m_lib.m_utils.m_entity_utils import add_db_code_alias
 from db_autotest.lite_object.c_m_table import C_M_Table
 import db_autotest.m_lib.m_config.config as cn
 
-
+@M_Object_Decorator
+@M_Meta_DB_Decorator
+@M_Table_Decorator
 class C_M_TableNames(C_M_Table):
     """
     docstring
