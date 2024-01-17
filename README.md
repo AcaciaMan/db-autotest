@@ -3,6 +3,8 @@ DB Database test automation. This python package allows to create database objec
 
 One further option is to print, save data as YAML file, another is to use retrieved object in data comparissons or new database object creation.
 
+AcaciaMan/db-autotest-vscode is related repository for UI (User Interface) part in Microsoft Visual Studio Code as extension.
+
 ## DB structure as object in Python
 Better explanation is code example from [c_m_table.py](https://github.com/AcaciaMan/db-autotest/blob/main/Python/src/db_autotest/lite_object/c_m_table.py).
 
