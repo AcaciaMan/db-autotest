@@ -1,5 +1,6 @@
 from db_autotest.m_lib.m_object.m_class import M_Class
 from db_autotest.m_lib.m_object.m_entity import M_Entity
+from db_autotest.m_lib.m_object.m_object import M_Object
 from db_autotest.m_lib.m_object.m_relation import M_Relation
 from db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
 from db_autotest.m_lib.m_object.m_structure import M_Structure
@@ -8,7 +9,7 @@ from db_autotest.m_lib.m_table.m_table import m_column, m_object, m_object_detai
 from db_autotest.m_lib.m_utils.m_entity_utils import get_column_i
 
 
-class C_M_Table(object):
+class C_M_Table(M_Object):
     """
     docstring
     """
@@ -54,7 +55,7 @@ class C_M_Table(object):
         self.s_m_table.child.append([self.s_m_column, self.r_m_table_column])
         self.s_m_table.child.append([self.s_m_index, self.r_m_table_index])
 
-        self.c_main = M_Class(self.s_m_table)
+        self.main_class = M_Class(self.s_m_table)
 
 
 def columnSortFunc(self, e):

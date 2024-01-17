@@ -8,14 +8,14 @@ class TestLoads(unittest.TestCase):
     def testLoadInit(self):
         print('Started init')
         cl = C_M_Table()
-        cl.c_main.load([4])
-        print(M_Yaml().get_yaml(cl.c_main.m_structure))
+        cl([4])
+        print(M_Yaml().get_yaml(cl.main_class.m_structure))
 
     def testLoadNames(self):
         print('Started names')
         cl = C_M_TableNames()
-        cl.c_main.load([4])
-        print(M_Yaml().get_yaml(cl.c_main.m_structure))
+        cl([4])
+        print(M_Yaml().get_yaml(cl.main_class.m_structure))
 
 
 
