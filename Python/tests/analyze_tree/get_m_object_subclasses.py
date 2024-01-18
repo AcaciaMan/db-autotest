@@ -1,10 +1,34 @@
 import os
 import ast
 
+def split_path(path):
+    parts = []
+    while True:
+        path, folder = os.path.split(path)
+        if folder:
+            parts.append(folder)
+        else:
+            if path:
+                parts.append(path)
+            break
+    parts.reverse()
+    return parts
+
+
 def analyze(packagedir):
     l_m_object_sub = {}
     f_m_generated_entity = None
+    packages = {}
+    package_name = None
     for (dirpath, dirnames, filenames) in os.walk(packagedir):
+        head, tail = os.path.split(dirpath)
+
+        if head == packagedir:
+            packages[dirpath] = tail
+
+        if head in packages:
+            package_name = packages[head]
+
         for filename in filenames:
             if not filename.endswith('.py'):
                 continue
@@ -24,7 +48,12 @@ def analyze(packagedir):
                         if type(x) == ast.Name:
                             y: ast.Name = x
                             if y.id == 'M_Object_Decorator':
-                                d['M_FILE']=filename
+                                d['M_PACKAGE']=package_name
+                                # remove package dir
+                                # split path
+                                # join back with '.'
+                                removed_begining_and_py = filename[len(packagedir):-3]
+                                d['M_FILE']='.'.join(split_path(removed_begining_and_py)[1:])
                                 d['M_CLASS']=node.name
                                 d['M_PARENT']=None
                                 if (len(node.bases)>0):
@@ -44,4 +73,7 @@ def analyze(packagedir):
 
     return (l_m_object_sub, f_m_generated_entity)
 
-print(analyze(r'C:\work\GitHub\db-autotest\Python\src'))
+dirpath = r'C:/work/GitHub/db-autotest/Python/src'
+# directories = split_path(dirpath)
+# print(directories)
+print(analyze(dirpath))
