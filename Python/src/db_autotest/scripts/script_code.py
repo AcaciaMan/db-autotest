@@ -3,6 +3,7 @@ import os
 from db_autotest.m_lib.m_config.config import M_Config
 from db_autotest.m_lib.m_utils.generate_entity_dict import GenerateEntityDict
 from db_autotest.m_lib.m_utils.generate_tab_cols import GenerateTabCols
+from db_autotest.scripts.script_db import script_load_db_meta_entities_dict
 
 def script_split_path(path):
     parts = []
@@ -90,6 +91,10 @@ def script_generate_EntitiesDict():
     if f_m_generated_entity:
         gED = GenerateEntityDict(f_m_generated_entity, l_m_object_sub )
         gED()
+
+    else:
+        script_load_db_meta_entities_dict(l_m_object_sub)
+        
 
     
 
