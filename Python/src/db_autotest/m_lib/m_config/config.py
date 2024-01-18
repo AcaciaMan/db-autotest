@@ -1,5 +1,6 @@
 import sqlite3
 import configparser
+from db_autotest.m_lib.m_config.m_generated_entity_dict import M_GeneratedEntityDict
 from db_autotest.m_lib.m_utils.connect_db import M_ConnectFactory, M_Connect
 
 class M_Config:
@@ -9,7 +10,7 @@ class M_Config:
     main_env: str = None
     fetch_child_rows:int = 1000
     env_dict = {}
-
+    m_generated_entities = M_GeneratedEntityDict()
 
     @classmethod
     def set_config(cls, config: configparser.ConfigParser):
