@@ -46,8 +46,3 @@ def script_load_db_meta_structure():
     elif db_type == 'sqlite':
         Load().load()
 
-
-def script_load_db_meta_entities_dict(entities_dict):
-    # delete packages data from db
-    # insert packages data
-    pass

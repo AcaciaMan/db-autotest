@@ -1,0 +1,4 @@
+from db_autotest.scripts.script_code import script_generate_EntitiesDict
+
+
+script_generate_EntitiesDict()
