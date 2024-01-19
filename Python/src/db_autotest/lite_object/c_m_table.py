@@ -20,6 +20,7 @@ class C_M_Table(M_Object):
         """
         docstring
         """
+        super().__init__()
         # ==================================== m_table ===============================
         self.t_m_table = M_Entity(m_object_detail(), m_object_detail_r(), name='table')
         
