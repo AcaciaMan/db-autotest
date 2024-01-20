@@ -30,4 +30,4 @@ class C_M_Person(M_Object):
         self.s_m_person = M_Structure(self.t_m_person)
         self.s_m_person.child.append([self.s_m_employee, self.r_m_person_employee])
 
-        self.c_main = M_Class(self.s_m_person)
+        self.main_class = M_Class(self.s_m_person)
