@@ -24,6 +24,8 @@ C:\Users\User\.vscode\extensions\alexcvzz.vscode-sqlite-0.14.1\dist\extension.js
 
 ## Install Command Variable extension
 
+## Instal Live preview extension
+
 ## Add configurations (launch.json) and then use F5 to debug modules
 
 ```json
