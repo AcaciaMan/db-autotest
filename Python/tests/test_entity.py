@@ -1,4 +1,3 @@
-import json
 import unittest
 from db_autotest.lite_object.c_m_table import C_M_Table
 from db_autotest.m_lib.m_utils.m_json import M_JSON
@@ -23,7 +22,9 @@ class TestLoads(unittest.TestCase):
         print('Started names json')
         cl = C_M_TableNames()
         cl([4])
-        print(json.dumps( M_JSON().get_json(cl.main_class.m_structure), indent=2))
+        m_j = M_JSON()
+        m_j.get_json(cl.main_class.m_structure)
+        print(m_j.stringify())
 
 
 if __name__ == '__main__':
