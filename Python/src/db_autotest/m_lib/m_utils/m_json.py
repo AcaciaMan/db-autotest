@@ -1,7 +1,6 @@
 from db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
 from db_autotest.m_lib.m_object.m_structure import M_Structure
 
-
 class M_JSON(object):
     """
     docstring
@@ -10,53 +9,42 @@ class M_JSON(object):
         """
         docstring
         """
+        self.obj = {}
         self.s: str
 
-    def get_json(self, m_structure: 'M_Structure'):
+    def get_json(self, m_structure: M_Structure):
         """
         Get node entity
         Get parent nodes
         Get child nodes
             1 diffs from many 
         """
-        self.s = m_structure.node.__str__()
-
-        s8 = self.get_nodes(m_structure, 0)
-
-        if s8 is not None:
-            self.s = self.s + '\n' + s8
-
-        return self.s
+        self.obj[m_structure.node.name] = m_structure.node.getPrettyObject()
+        self.get_nodes(self.obj, m_structure, 0)
+        return self.obj
 
 
     
-    def get_nodes(self, m_structure: 'M_Structure', level: int):
+    def get_nodes(self, n_obj, m_structure: 'M_Structure', level: int):
         """
         docstring
         """
         if len(m_structure.parent)>0 or len(m_structure.child)>0:
-            s4 = "".join(['  ']*level)
-
             s7 = ''
-
             if m_structure.m_type == M_StructureType.CHILD:
                 s7= 'c_'
-
             if m_structure.m_type == M_StructureType.PARENT:
                 s7= 'p_'
+            l_n = []
+            n_obj[s7+ m_structure.node.name + '_nodes'] = l_n
+            self.get_parent_child_nodes(l_n, m_structure, level+1)
 
-            s1 = s4 + s7+ m_structure.node.name + '_nodes: [\n'
-
-            s2 = self.get_parent_child_nodes(m_structure, level+1)
-
-            s3 = '\n' +s4+ ']'
-
-            return s1 +s2 +s3
+            return n_obj
         
         return None
 
 
-    def get_parent_child_nodes(self, m_structure: 'M_Structure', level):
+    def get_parent_child_nodes(self, l_n, m_structure: M_Structure, level):
         """
         p_object: {'object_id': 4, 'schema': 4},
         c_columns: [
@@ -67,32 +55,53 @@ class M_JSON(object):
             c_column: {'name': 'col2'}
         ]
         """
-        s4 = "".join(['  ']*level)
 
-        s1: str = ''
         structure: M_Structure
-        i=0
         for structure, rel in m_structure.parent:
             if structure.node.row_data is not None:
-                s1 = s1 + s4 + 'p_' + structure.node.__str__() + ',\n'
-                s8 = self.get_nodes(structure, level)
-                if s8 is not None:
-                    s1 = s1 + s8+ ',\n'
-                i=i+1
+                d_o = {}
+                d_o['p_' + structure.node.name] = structure.node.getPrettyObject()
+                l_n.append(d_o)
+                self.get_nodes(d_o, structure, level)
 
 
         # check if child has rows
         for structure, rel in m_structure.child:
             if structure.node.row_data is not None:
-                s1 = s1 + s4 + 'c_' + structure.node.__str__() + ',\n'
-                s8 = self.get_nodes(structure, level)
-                if s8 is not None:
-                    s1 = s1 + s8+ ',\n'
-                i=i+1
+                d_o = {}
+                d_o['c_' + structure.node.name] = structure.node.getPrettyObject()
+                l_n.append(d_o)
+                self.get_nodes(d_o, structure, level)
 
-        if i>0:
-            s1=s1[0:-2]
+        return l_n
 
-        return s1
+    def stringify(self):
+        """
+{"table": {"table_name": "m_column", "droped": 0}, 
+ "table_nodes": [
+    {"p_object": {"schema": "db", "name": "m_column"}}, 
+    {"c_column": {"column_name": "m_column_id", "sort": 0, "type": "INTEGER", "pk": null}}, 
+    {"c_column": {"column_name": "m_object_detail_id", "sort": 1, "type": "INTEGER", "pk": null}}, 
+    {"c_column": {"column_name": "m_column_obj_id", "sort": 2, "type": "INTEGER", "pk": null}}, 
+    {"c_column": {"column_name": "sort", "sort": 3, "type": "INTEGER", "pk": null}}, 
+    {"c_column": {"column_name": "type", "sort": 4, "type": "TEXT", "pk": null}}, 
+    {"c_index": {"index_name": "m_column_idx", "m_unique": 1, "status": "VALID", "enabled": 1, "droped": 0}, 
+     "c_index_nodes": [
+        {"c_idx_column": {"column_name": "m_object_detail_id", "sort": 0}}, 
+        {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 1}}, 
+        {"c_idx_column": {"column_name": "sort", "sort": 2}}
+        ]
+    }, 
+    {"c_index": {"index_name": "m_column_obj_idx", "m_unique": 0, "status": "VALID", "enabled": 1, "droped": 0}, 
+     "c_index_nodes": [
+        {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 0}}
+        ]
+    }
+    ]
+}
+        """
 
-    
+
+
+        
+        return self.s

@@ -130,7 +130,6 @@ class M_Entity(object):
         """
         d_o = {}
 
-        d_row = {}
         for x1 in self.pretty_row:
 
             if x1 in self.db_code:
@@ -138,10 +137,7 @@ class M_Entity(object):
             else:
                 x3 = x1
 
-            x2 = [x3, self.row_dict[x1]]
-            d_row[x3] = x2
-
-        d_o[self.name] = d_row
+            d_o[x3] = self.row_dict[x1]
 
         return d_o 
     

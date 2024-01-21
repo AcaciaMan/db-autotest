@@ -1,5 +1,7 @@
+import json
 import unittest
 from db_autotest.lite_object.c_m_table import C_M_Table
+from db_autotest.m_lib.m_utils.m_json import M_JSON
 from db_autotest.m_lib.m_utils.m_yaml import M_Yaml
 from db_autotest.lite_object.c_m_table_names import C_M_TableNames
 
@@ -17,6 +19,11 @@ class TestLoads(unittest.TestCase):
         cl([4])
         print(M_Yaml().get_yaml(cl.main_class.m_structure))
 
+    def testLoadNamesJSON(self):
+        print('Started names json')
+        cl = C_M_TableNames()
+        cl([4])
+        print(json.dumps( M_JSON().get_json(cl.main_class.m_structure), indent=2))
 
 
 if __name__ == '__main__':
