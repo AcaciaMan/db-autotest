@@ -2,7 +2,7 @@ from db_autotest.m_lib.m_object.m_str_type_enum import M_StructureType
 from db_autotest.m_lib.m_object.m_structure import M_Structure
 
 
-class M_Yaml(object):
+class M_JSON(object):
     """
     docstring
     """
@@ -12,7 +12,7 @@ class M_Yaml(object):
         """
         self.s: str
 
-    def get_yaml(self, m_structure: 'M_Structure'):
+    def get_json(self, m_structure: 'M_Structure'):
         """
         Get node entity
         Get parent nodes

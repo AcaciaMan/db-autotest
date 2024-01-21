@@ -98,6 +98,7 @@ class M_Entity(object):
             fill_entity_dict(self)
 
 
+    # TODO rename to getStrYaml
     def __str__(self):
         """
         docstring
@@ -122,6 +123,27 @@ class M_Entity(object):
         s = s + '}'
 
         return s  
+    
+    def getPrettyObject(self):
+        """
+        docstring
+        """
+        d_o = {}
+
+        d_row = {}
+        for x1 in self.pretty_row:
+
+            if x1 in self.db_code:
+                x3 = self.db_code[x1]
+            else:
+                x3 = x1
+
+            x2 = [x3, self.row_dict[x1]]
+            d_row[x3] = x2
+
+        d_o[self.name] = d_row
+
+        return d_o 
     
     def sortFunc(self, e):
         """
