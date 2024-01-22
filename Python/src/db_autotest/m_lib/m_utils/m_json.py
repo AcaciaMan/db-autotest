@@ -79,26 +79,24 @@ class M_JSON(object):
     def stringify(self, level = 0):
         """
 {
- "table": {"table_name": "m_column", "droped": 0}, 
+ "table": {"table_name": "m_column", "droped": 0},
  "table_nodes": [
-    {"p_object": {"schema": "db", "name": "m_column"}}, 
-    {"c_column": {"column_name": "m_column_id", "sort": 0, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "m_object_detail_id", "sort": 1, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "m_column_obj_id", "sort": 2, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "sort", "sort": 3, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "type", "sort": 4, "type": "TEXT", "pk": null}}, 
-    {"c_index": {"index_name": "m_column_idx", "m_unique": 1, "status": "VALID", "enabled": 1, "droped": 0}, 
-     "c_index_nodes": [
-        {"c_idx_column": {"column_name": "m_object_detail_id", "sort": 0}}, 
-        {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 1}}, 
+    {"p_object": {"schema": "db", "name": "m_column"}},
+    {"c_column": {"column_name": "m_column_id", "sort": 0, "type": "INTEGER", "pk": null}},
+    {"c_column": {"column_name": "m_object_detail_id", "sort": 1, "type": "INTEGER", "pk": null}},
+    {"c_column": {"column_name": "m_column_obj_id", "sort": 2, "type": "INTEGER", "pk": null}},
+    {"c_column": {"column_name": "sort", "sort": 3, "type": "INTEGER", "pk": null}},
+    {"c_column": {"column_name": "type", "sort": 4, "type": "TEXT", "pk": null}},
+    {"c_index": {"index_name": "m_column_idx", "m_unique": 1, "status": "VALID", "enabled": 1, "droped": 0}},
+    {"c_index_nodes": [
+        {"c_idx_column": {"column_name": "m_object_detail_id", "sort": 0}},
+        {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 1}},
         {"c_idx_column": {"column_name": "sort", "sort": 2}}
-        ]
-    }, 
-    {"c_index": {"index_name": "m_column_obj_idx", "m_unique": 0, "status": "VALID", "enabled": 1, "droped": 0}, 
-     "c_index_nodes": [
+        ]},
+    {"c_index": {"index_name": "m_column_obj_idx", "m_unique": 0, "status": "VALID", "enabled": 1, "droped": 0}},
+    {"c_index_nodes": [
         {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 0}}
-        ]
-    }
+        ]}
     ]
 }
         """
@@ -122,24 +120,7 @@ class M_JSON(object):
 
     def add_parent_child_nodes(self, objList, level):
         """
-    {"p_object": {"schema": "db", "name": "m_column"}}, 
-    {"c_column": {"column_name": "m_column_id", "sort": 0, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "m_object_detail_id", "sort": 1, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "m_column_obj_id", "sort": 2, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "sort", "sort": 3, "type": "INTEGER", "pk": null}}, 
-    {"c_column": {"column_name": "type", "sort": 4, "type": "TEXT", "pk": null}}, 
-    {"c_index": {"index_name": "m_column_idx", "m_unique": 1, "status": "VALID", "enabled": 1, "droped": 0}, 
-     "c_index_nodes": [
-        {"c_idx_column": {"column_name": "m_object_detail_id", "sort": 0}}, 
-        {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 1}}, 
-        {"c_idx_column": {"column_name": "sort", "sort": 2}}
-        ]
-    }, 
-    {"c_index": {"index_name": "m_column_obj_idx", "m_unique": 0, "status": "VALID", "enabled": 1, "droped": 0}, 
-     "c_index_nodes": [
-        {"c_idx_column": {"column_name": "m_column_obj_id", "sort": 0}}
-        ]
-    }
+        docstring
         """
         s5 = "".join(['    ']*(level))
         s4 = "".join(['    ']*(level+1))
